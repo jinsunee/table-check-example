@@ -45,12 +45,8 @@ export default function useTableSelection<T extends { id: number }>(
     const rowId = data[index].id;
     const newSelectedRows = new Set(selectedRows);
 
-    if (selectedRows.has(rowId)) {
-      newSelectedRows.delete(rowId);
-    } else {
-      newSelectedRows.clear();
-      newSelectedRows.add(rowId);
-    }
+    newSelectedRows.clear();
+    newSelectedRows.add(rowId);
 
     setSelectedRows(newSelectedRows);
     lastInteractedIndex.current = index;
